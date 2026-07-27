@@ -67,4 +67,100 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def add(a, b):
+    """Return the sum of a and b."""
+    return a + b
 
+
+def subtract(a, b):
+    """Return the difference of a and b."""
+    return a - b
+
+
+def multiply(a, b):
+    """Return the product of a and b."""
+    return a * b
+
+
+def divide(a, b):
+    """
+    Return a divided by b, rounded to 2 decimal places.
+
+    Raises:
+    ValueError: If b is zero.
+    """
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
+    return round(a / b, 2)
+
+
+def modulus(a, b):
+    """
+    Return the remainder of a divided by b.
+
+    Raises:
+    ValueError: If b is zero.
+    """
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
+    return a % b
+
+
+def exponentiate(a, b):
+    """Return a raised to the power of b."""
+    return a ** b
+
+
+def display_menu():
+    """
+    Display the calculator menu options.
+
+    Returns:
+    None
+    """
+    print("============================")
+    print("     SIMPLE CALCULATOR")
+    print("============================")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Modulus")
+    print("6. Exponentiation")
+    print("7. Quit")
+
+
+if __name__ == "__main__":
+    operations = {
+        "1": ("+", add),
+        "2": ("-", subtract),
+        "3": ("*", multiply),
+        "4": ("/", divide),
+        "5": ("%", modulus),
+        "6": ("**", exponentiate),
+    }
+
+    while True:
+        display_menu()
+        choice = input("Select an operation (1-7): ")
+
+        if choice == "7":
+            print("Goodbye!")
+            break
+
+        if choice not in operations:
+            print("Error: Please enter a number between 1 and 7.")
+            print()
+            continue
+
+        symbol, operation = operations[choice]
+        num1 = float(input("Enter first number : "))
+        num2 = float(input("Enter second number: "))
+
+        try:
+            result = operation(num1, num2)
+            print(f"Result: {num1:g} {symbol} {num2:g} = {result}")
+        except ValueError as e:
+            print(f"Error: {e}")
+
+        print()

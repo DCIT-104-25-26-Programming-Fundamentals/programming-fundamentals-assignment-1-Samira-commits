@@ -39,3 +39,84 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def calculate_sum(numbers):
+    """
+    Calculate the sum of a list of numbers without using sum().
+
+    Parameters:
+    numbers (list): List of numbers.
+
+    Returns:
+    float or int: The total sum.
+    """
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+
+def calculate_average(numbers):
+    """
+    Calculate the average of a list of numbers.
+
+    Parameters:
+    numbers (list): List of numbers.
+
+    Returns:
+    float: The average value.
+    """
+    total = calculate_sum(numbers)
+    return total / len(numbers)
+
+
+def calculate_max(numbers):
+    """
+    Find the maximum value in a list without using max().
+
+    Parameters:
+    numbers (list): List of numbers.
+
+    Returns:
+    float or int: The largest value.
+    """
+    largest = numbers[0]
+    for num in numbers:
+        if num > largest:
+            largest = num
+    return largest
+
+
+def calculate_min(numbers):
+    """
+    Find the minimum value in a list without using min().
+
+    Parameters:
+    numbers (list): List of numbers.
+
+    Returns:
+    float or int: The smallest value.
+    """
+    smallest = numbers[0]
+    for num in numbers:
+        if num < smallest:
+            smallest = num
+    return smallest
+
+
+if __name__ == "__main__":
+    n = int(input("How many numbers? "))
+
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+    else:
+        numbers = []
+        for i in range(n):
+            value = int(input(f"Enter number {i + 1}: "))
+            numbers.append(value)
+
+        print()
+        print("Results:")
+        print(f"Sum:     {calculate_sum(numbers)}")
+        print(f"Average: {calculate_average(numbers)}")
+        print(f"Maximum: {calculate_max(numbers)}")
+        print(f"Minimum: {calculate_min(numbers)}")
